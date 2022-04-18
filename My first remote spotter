@@ -1,0 +1,214 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Seeremoteevents = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+local LoadBar = Instance.new("Frame")
+local Remotes = Instance.new("ScrollingFrame")
+local re = Instance.new("TextLabel")
+local TextButton_2 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.IgnoreGuiInset = true
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Frame.Position = UDim2.new(0.0334158242, 0, 0.0186666548, 0)
+Frame.Selectable = true
+Frame.Size = UDim2.new(0.549505055, 1, 0.431999952, 1)
+
+Seeremoteevents.Name = "See remote events"
+Seeremoteevents.Parent = Frame
+Seeremoteevents.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Seeremoteevents.Position = UDim2.new(0.553334177, 0, 0.26380372, 0)
+Seeremoteevents.Size = UDim2.new(0.400785893, 1, 0.466257632, 1)
+Seeremoteevents.Font = Enum.Font.SourceSansBold
+Seeremoteevents.Text = "See remote events"
+Seeremoteevents.TextColor3 = Color3.fromRGB(250, 250, 250)
+Seeremoteevents.TextScaled = true
+Seeremoteevents.TextSize = 14.000
+Seeremoteevents.TextWrapped = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+TextButton.Position = UDim2.new(0.0432219803, 0, 0.26380372, 0)
+TextButton.Size = UDim2.new(0.400785893, 1, 0.466257632, 1)
+TextButton.Font = Enum.Font.SourceSansBold
+TextButton.Text = "Search for remote events"
+TextButton.TextColor3 = Color3.fromRGB(250, 250, 250)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+LoadBar.Name = "LoadBar"
+LoadBar.Parent = Frame
+LoadBar.Active = true
+LoadBar.BackgroundColor3 = Color3.fromRGB(0, 250, 0)
+LoadBar.Position = UDim2.new(0, 0, 0.868073583, 0)
+LoadBar.Selectable = true
+LoadBar.Size = UDim2.new(0, 0, 0.200000003, 0)
+
+Remotes.Name = "Remotes"
+Remotes.Parent = ScreenGui
+Remotes.Active = true
+Remotes.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Remotes.BorderColor3 = Color3.fromRGB(47, 47, 47)
+Remotes.Size = UDim2.new(1, 1, 1, 1)
+Remotes.Visible = false
+
+re.Name = "re"
+re.Parent = Remotes
+re.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+re.Size = UDim2.new(0.899999976, 0, 0.0500000007, 0)
+re.Font = Enum.Font.SourceSansBold
+re.Text = "Remote Events"
+re.TextColor3 = Color3.fromRGB(0, 0, 0)
+re.TextScaled = true
+re.TextSize = 14.000
+re.TextWrapped = true
+
+TextButton_2.Parent = Remotes
+TextButton_2.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+TextButton_2.Position = UDim2.new(0.847772181, 0, 0, 0)
+TextButton_2.Size = UDim2.new(0.0520000011, 1, 0.0500000007, 1)
+TextButton_2.Font = Enum.Font.SourceSansBold
+TextButton_2.Text = "X"
+TextButton_2.TextColor3 = Color3.fromRGB(250, 0, 0)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+-- Scripts:
+
+local function AHBDEG_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	script.Parent.Draggable = true
+end
+coroutine.wrap(AHBDEG_fake_script)()
+local function PLJBXL_fake_script() -- Seeremoteevents.LocalScript 
+	local script = Instance.new('LocalScript', Seeremoteevents)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		
+		script.Parent.Parent.Parent.Remotes.Visible = true
+		
+	end)
+end
+coroutine.wrap(PLJBXL_fake_script)()
+local function QCUL_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	local Latest = script.Parent.Parent.Parent.Remotes.re
+	local ts = game:GetService("TweenService")
+	
+	function CreateNewText(Text)
+		
+		print("Started")
+		
+		local IsAllowed = true
+		
+		for i, v in pairs(script.Parent.Parent.Parent.Remotes:GetChildren()) do
+			
+			if v:IsA("TextLabel") then
+				
+				if v.Text ~= Text then
+					
+					
+					
+				else
+					
+					IsAllowed = false
+					
+				end
+				
+			end
+			
+		end
+		
+		if IsAllowed == true then
+			
+			local NTL = Instance.new("TextLabel")
+			NTL.Name = Text
+			NTL.Size = UDim2.new(0.9, 0,0.05, 0)
+			NTL.TextScaled = true
+			NTL.Font = Enum.Font.SourceSansBold
+			NTL.Position = Latest.Position + UDim2.new(0,0,0.06,0)
+			NTL.Text = Text
+			NTL.Parent = Latest.Parent
+			print("Done")
+	
+			Latest = NTL
+			print("Set Latest")
+			
+		end
+		
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		
+		local QWOQW = {Size = UDim2.new(0.12, 0,0.2, 0)}
+		local QW = {Size = UDim2.new(0.25, 0,0.2, 0)}
+		local HW = {Size = UDim2.new(0.5, 0,0.2, 0)}
+		local MH = {Size = UDim2.new(0.75, 0,0.2, 0)}
+		local FW = {Size = UDim2.new(1,0,0.2,0)}
+		
+		local newts = ts:Create(script.Parent.Parent.LoadBar, TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.In, 0, false, 0), QWOQW)
+		local RemoteEvents = game:GetDescendants()
+		newts:Play()
+		newts.Completed:Wait()
+		
+		local Can = false
+		
+	for i, v in pairs(RemoteEvents) do
+				
+				newts = ts:Create(script.Parent.Parent.LoadBar, TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.In, 0, false, 0), QW)
+			
+			
+			if v:IsA("RemoteEvent") then
+	
+					newts:Play()
+					newts.Completed:Wait()
+	
+				local RemName = v.Name
+	
+				newts = ts:Create(script.Parent.Parent.LoadBar, TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.In, 0, false, 0), HW)
+				newts:Play()
+				newts.Completed:Wait()
+				
+				local VFN = v:GetFullName()
+				
+				local newts = ts:Create(script.Parent.Parent.LoadBar, TweenInfo.new(0.6, Enum.EasingStyle.Sine, Enum.EasingDirection.In, 0, false, 0), MH)
+				newts:Play()
+				newts.Completed:Wait()
+				CreateNewText(VFN)
+				local newts = ts:Create(script.Parent.Parent.LoadBar, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.In, 0, false, 0), FW)
+				newts:Play()
+				newts.Completed:Wait()
+				
+				script.Parent.Parent.LoadBar.Size = UDim2.new(0,0,0.2,0)
+				
+			end
+		end
+	end)
+end
+coroutine.wrap(QCUL_fake_script)()
+local function IMSGJDO_fake_script() -- TextButton_2.LocalScript 
+	local script = Instance.new('LocalScript', TextButton_2)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		
+		script.Parent.Parent.Visible = false
+		
+	end)
+	
+end
+coroutine.wrap(IMSGJDO_fake_script)()
