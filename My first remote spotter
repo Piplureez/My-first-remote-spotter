@@ -1,6 +1,10 @@
 -- Gui to Lua
 -- Version: 3.2
 
+-- To see if it's working
+
+print("Test! Hello world!")
+
 -- Instances:
 
 local ScreenGui = Instance.new("ScreenGui")
